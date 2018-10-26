@@ -9,8 +9,7 @@ presentAlert = async () => {
 
     const alert = await alertController.create({
         header: 'Hey!',
-        subHeader: 'Nice to meet you',
-        message: 'To navigate, just swipe the slides, use the keyboard or the actions available at the bottom right.',
+        message: 'Cool beans',
         buttons: ['OK']
     });
 

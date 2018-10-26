@@ -63,7 +63,7 @@
 
             <ion-slide>
                 <ion-card no-shadow>
-                    <h1>Ionic v4, web components, shadow dom and beyond 🚀</h1>
+                    <h1>Ionic v4 and Web Components 🚀</h1>
                 </ion-card>
             </ion-slide>
 
@@ -113,12 +113,9 @@
 
                     <ol text-left>
                         <li>Web components</li>
-                        <li>Shadow dom</li>
-                        <li>Slots</li>
-                        <li>CSS4 variables</li>
                         <li>What's Ionic?</li>
                         <li>Wrapped up, Ionic v4</li>
-                        <li>Redo</li>
+                        <li>Demo (Ionic agnostic, Shadow Dom, Slots and CSS4 variables)</li>
                     </ol>
                 </ion-card>
             </ion-slide>
@@ -128,127 +125,6 @@
                     <h1>What are Web Components?</h1>
                     <blockquote><strong>Web Components</strong> consists of three main technologies (<strong>Custom elements</strong>, <strong>Shadow DOM</strong> and <strong>HTML Templates</strong>) allowing you to create <strong>reusable custom elements</strong> — with their functionality <strong>encapsulated away</strong> from the rest of your code — and utilize them in your web apps.</blockquote>
                     <p><small><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">MDN Web Docs</a></small></p>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Components</h1>
-                    <img data-src="assets/img/components.png" class="add-box-shadow" style="margin-top: 12px; max-height: 600px; width: auto;"/>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Shadom DOM</h1>
-
-                    <ion-list lines="none" padding-top>
-                        <ion-item>
-                            <ion-label text-wrap><strong>Isolated DOM</strong>: Each component has kind of its own small kingdom</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap><strong>Isolated CSS</strong>: You cannot style the component and its children from outside. You can change CSS4 variables, style slotted elements and the host element</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-                    </ion-list>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Slots</h1>
-
-                    <ion-grid padding-top>
-                        <ion-row align-items-center justify-content-center>
-                            <ion-col size="12">
-                                <code padding margin text-left>&lt;ion-button&gt;
-                                    &lt;ion-label&gt;Hello world&lt;/ion-label&gt;
-                                    &lt;ion-icon name="happy" slot="start"&gt;&lt;/ion-icon&gt;
-                                    &lt;/ion-button&gt;
-                                </code>
-                            </ion-col>
-
-                            <ion-col size="12">
-                                <ion-button shape="round">
-                                    <ion-label>Hello world</ion-label>
-                                    <ion-icon name="happy" slot="start"></ion-icon>
-                                </ion-button>
-                            </ion-col>
-
-                            <ion-col size="12">
-                                <img data-src="assets/img/shadow-dom-details.png" class="add-box-shadow" style="margin-top: 12px;"/>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>CSS4 variables</h1>
-
-                    <ion-grid padding-top>
-                        <ion-row align-items-center justify-content-center>
-                            <ion-col size="12">
-                                <code padding margin text-left>ion-button button {
-                                    background: yellow !important; // -> Not cool
-                                    }
-
-                                    ion-button {
-                                    --background: red; // -> Cool
-                                    }</code>
-                            </ion-col>
-
-                            <ion-col size-md="6" size-xs="12">
-                                <ion-button shape="round" class="demo-b1">
-                                    <ion-label>Hello world in yellow</ion-label>
-                                    <ion-icon name="happy" slot="start"></ion-icon>
-                                </ion-button>
-                            </ion-col>
-
-                            <ion-col size-md="6" size-xs="12">
-                                <ion-button shape="round" class="demo-b2">
-                                    <ion-label>Hello world in red</ion-label>
-                                    <ion-icon name="happy" slot="start"></ion-icon>
-                                </ion-button>
-                            </ion-col>
-
-                            <ion-col size="12">
-                                <img data-src="assets/img/shadow-dom-css.png" class="add-box-shadow" style="margin-top: 12px;"/>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Custom elements</h1>
-                    <code padding margin text-left>class MyCustomElement extends HTMLElement {
-                        constructor() {
-                        super();
-
-                        // Create a shadow root
-                        const shadowRoot= this.attachShadow({mode: 'open'});
-
-
-                        const styles=`
-                        :host {
-                        color: var(--my-color, red);
-                        }
-                        `;
-
-                        shadowRoot.innerHTML = `
-                        &lt;style&gt;&dollar;{styles}&lt;/style&gt;
-                        &lt;h3&gt;Hello&lt;/h3&gt;
-                        &lt;slot name='after-content'&gt;Button&lt;/slot&gt;
-                        `;
-                        }
-                        }
-
-                        customElements.define('my-custom-element', MyCustomElement);</code>
                 </ion-card>
             </ion-slide>
 
@@ -362,24 +238,6 @@
             </ion-slide>
 
             <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Beside core, what's new In @ionic/angular?</h1>
-
-                    <ion-list lines="none" padding-top>
-                        <ion-item>
-                            <ion-label text-wrap>Angular style <strong>routing</strong> ("instead of push/pop")</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap>Angular <strong>CLI</strong> use under the hood: no more app-scripts</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-                    </ion-list>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
                 <h1 style="display: none;">Migration's thoughts</h1>
                 <img data-src="assets/meme/ionic-david.jpg"/>
             </ion-slide>
@@ -390,12 +248,12 @@
 
                     <ion-list lines="none" padding-top>
                         <ion-item>
-                            <ion-label text-wrap>Did it took <strong>time</strong>? Yes of course (my app is 68 components, 51 providers, 20 pages, 16 modals, 5 pipes and 1 directive). Also I developed some other GUI and UX improvements in the meantime</ion-label>
+                            <ion-label text-wrap>Did it took <strong>time</strong>? <strong>Yes</strong> of course (my app is 68 components, 51 providers, 20 pages, 16 modals, 5 pipes and 1 directive) <strong>but</strong> I also developed some other GUI and UX improvements in the meantime and began too early probably</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap>What was <strong>difficult</strong>? I began probably to early (alpha-11) and styling with Shadow-dom was difficult to understand (less documentation and tutorials at that time). Also my designer made me develop too much custom style 🤣</ion-label>
+                            <ion-label text-wrap>What was <strong>difficult</strong>? <strong>Jein</strong> Styling with Shadow-dom was maybe difficult to understand (less documentation and tutorials "back then"). Also my designer made me develop too much custom style 🤣</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
 
@@ -405,7 +263,7 @@
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap>And the other topics (<strong>routing</strong>, async/await, typings, etc.) weren't too difficult? Not at all, really straight forward and/or solved with copy paste. Furthermore, I've to add, since the begin of my migration the quality was really there</ion-label>
+                            <ion-label text-wrap>And the other topics (<strong>routing</strong>, async/await, typings, etc.) weren't too difficult? Not at all, <strong>easy peasy</strong>. Furthermore, I've to add, since the begin of my migration the quality was really there</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
                     </ion-list>
@@ -414,7 +272,7 @@
 
             <ion-slide>
                 <ion-card no-shadow>
-                    <h1>Redo?</h1>
+                    <h1>Demo</h1>
 
                     <img data-src="assets/meme/repeat.gif" padding-top/>
                 </ion-card>
@@ -424,38 +282,96 @@
                 <ion-card no-shadow class="align-start-xs">
                     <h1></h1>
 
-                    <p><a href="https://github.com/fluster/deckdeckgo">DeckDeckGo</a> the new tool to create lightweight presentation using HTML and Ionic components</p>
+                    <p><a href="https://deckdeckgo.com">DeckDeckGo</a> the new tool to create lightweight presentation using HTML and Ionic components</p>
+
+                    <p no-margin style="font-size: 5rem;">
+                        <ion-icon onclick="presentAlert()" src="assets/img/deckdeckgo.svg" padding-top margin-top></ion-icon>
+                    </p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Shadom DOM</h1>
 
                     <ion-list lines="none" padding-top>
                         <ion-item>
-                            <ion-label text-wrap>Use HTML and CSS to create <strong>without effort</strong> your presentation</ion-label>
+                            <ion-label text-wrap><strong>Isolated DOM</strong>: Each component has kind of its own small kingdom</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap>Use <strong>Ionic</strong> components to create the content or even add extra features</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap><strong>Style</strong> your presentation quickly thank to the <a href="https://beta.ionicframework.com/docs/theming/color-generator">Ionic Color Generator</a></ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap>Lightweight and <strong>lazy</strong> loaded images</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap><strong>Future:</strong> offline support (service workers)</ion-label>
+                            <ion-label text-wrap><strong>Isolated CSS</strong>: You cannot style the component and its children from outside. You can change CSS4 variables, style slotted elements and the host element</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
                     </ion-list>
+                </ion-card>
+            </ion-slide>
 
-                    <ion-fab-button onclick="firstSlide()" padding-top style="display: flex; justify-content: center;" padding>
-                        <ion-icon name="refresh"></ion-icon>
-                    </ion-fab-button>
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Slots</h1>
+
+                    <ion-grid padding-top>
+                        <ion-row align-items-center justify-content-center>
+                            <ion-col size="12">
+                                <code padding margin text-left>&lt;ion-button&gt;
+    &lt;ion-label&gt;Hello world&lt;/ion-label&gt;
+    &lt;ion-icon name="happy" slot="start"&gt;&lt;/ion-icon&gt;
+&lt;/ion-button&gt;
+                                </code>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <ion-button shape="round">
+                                    <ion-label>Hello world</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <img data-src="assets/img/shadow-dom-details.png" class="add-box-shadow" style="margin-top: 12px;"/>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>CSS4 variables</h1>
+
+                    <ion-grid padding-top>
+                        <ion-row align-items-center justify-content-center>
+                            <ion-col size="12">
+                                <code padding margin text-left>ion-button button {
+    background: yellow !important; // -> Not cool
+}
+
+ion-button {
+    --background: red; // -> Cool
+}</code>
+                            </ion-col>
+
+                            <ion-col size-md="6" size-xs="12">
+                                <ion-button shape="round" class="demo-b1">
+                                    <ion-label>Hello world in yellow</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size-md="6" size-xs="12">
+                                <ion-button shape="round" class="demo-b2">
+                                    <ion-label>Hello world in red</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <img data-src="assets/img/shadow-dom-css.png" class="add-box-shadow" style="margin-top: 12px;"/>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
                 </ion-card>
             </ion-slide>
 
@@ -480,7 +396,10 @@
         </ion-fab-list>
     </ion-fab>
 
+    <!-- Ionic components anchors -->
     <ion-popover-controller></ion-popover-controller>
+    <ion-modal-controller></ion-modal-controller>
+    <ion-alert-controller></ion-alert-controller>
 </ion-app>
 
 </body>
