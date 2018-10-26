@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-    <title>DeckDeckGo</title>
+    <title>Ionic v4 and Web Components</title>
 
-    <meta property="og:site_name" content="DeckDeckGo">
-    <meta property="og:title" content="DeckDeckGo">
+    <meta property="og:site_name" content="Ionic v4 and Web Components">
+    <meta property="og:title" content="Ionic v4 and Web Components">
 
     <meta name="author" content="David Dal Busco">
 
-    <meta name="description" content="DeckDeckGo is the new tool to create lightweight presentation using HTML and Ionic components. DeckDeckGo let you create without effort your slides and allows you to add some extra interactive features with the help of the Ionic Web Components. Moreover, DeckDeckGo bundles your presentation with services workers letting you publish it online with an offline support.">
-    <meta property="og:description" content="DeckDeckGo is the new tool to create lightweight presentation using HTML and Ionic components.">
+    <meta name="description" content="Ionic v4 and Web Components">
+    <meta property="og:description" content="v">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deckdeckgo.com">
@@ -63,17 +63,368 @@
 
             <ion-slide>
                 <ion-card no-shadow>
-                    <h1>DeckDeckGo</h1>
-                    <h3>The new tool to create lightweight presentation using HTML and <a href="https://ionicframework.com">Ionic</a> 🚀</h3>
-                    <p no-margin style="font-size: 5rem;">
-                        <ion-icon onclick="presentAlert()" src="assets/img/deckdeckgo.svg" padding-top margin-top></ion-icon>
-                    </p>
+                    <h1>Ionic v4, web components, shadow dom and beyond 🚀</h1>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <h1 style="display: none;">Introduction</h1>
+                <ion-grid>
+                    <ion-row align-items-center>
+                        <ion-col size="5" text-right>
+                            <img data-src="https://secure.meetupstatic.com/photos/member/9/c/4/2/member_272620002.jpeg" style="min-width: 14vh; min-height: 14vh; border-radius: 50%; border: 0;">
+                        </ion-col>
+                        <ion-col size="7">
+                            <h2>David Dal Busco</h2>
+                            <p>Founder of <a href="https://fluster.io">Fluster</a></p>
+                            <p>Organizer of the Ionic Zürich <a href="https://www.meetup.com/Ionic-Zurich">Meetup</a></p>
+                            <p><small>Zürich, Switzerland</small></p>
+
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://twitter.com/daviddalbusco"><ion-icon name="logo-twitter"></ion-icon>daviddalbusco</a>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://www.linkedin.com/in/david-dal-busco/"><ion-icon name="logo-linkedin"></ion-icon>daviddalbusco</a>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://medium.com/@david.dalbusco"><ion-icon src="assets/img/medium-icon.svg"></ion-icon>daviddalbusco</ion-icon></a>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://github.com/peterpeterparker"><ion-icon name="logo-github"></ion-icon>peterpeterparker</a>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://forum.ionicframework.com/u/reedrichards/summary"><ion-icon name="logo-ionitron"></ion-icon>reedrichards</i></a>
+                                    </ion-col>
+                                    <ion-col size-xs="12" size-md="6">
+                                        <a href="https://stackoverflow.com/users/5404186/peter-parker"><ion-icon src="assets/img/stack-overflow-icon.svg"></ion-icon>Peter Parker</a>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Overview</h1>
+
+                    <ol text-left>
+                        <li>Web components</li>
+                        <li>Shadow dom</li>
+                        <li>Slots</li>
+                        <li>CSS4 variables</li>
+                        <li>What's Ionic?</li>
+                        <li>Wrapped up, Ionic v4</li>
+                        <li>Redo</li>
+                    </ol>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>What are Web Components?</h1>
+                    <blockquote><strong>Web Components</strong> consists of three main technologies (<strong>Custom elements</strong>, <strong>Shadow DOM</strong> and <strong>HTML Templates</strong>) allowing you to create <strong>reusable custom elements</strong> — with their functionality <strong>encapsulated away</strong> from the rest of your code — and utilize them in your web apps.</blockquote>
+                    <p><small><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">MDN Web Docs</a></small></p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Components</h1>
+                    <img data-src="assets/img/components.png" class="add-box-shadow" style="margin-top: 12px; max-height: 600px; width: auto;"/>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Shadom DOM</h1>
+
+                    <ion-list lines="none" padding-top>
+                        <ion-item>
+                            <ion-label text-wrap><strong>Isolated DOM</strong>: Each component has kind of its own small kingdom</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap><strong>Isolated CSS</strong>: You cannot style the component and its children from outside. You can change CSS4 variables, style slotted elements and the host element</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Slots</h1>
+
+                    <ion-grid padding-top>
+                        <ion-row align-items-center justify-content-center>
+                            <ion-col size="12">
+                                <code padding margin text-left>&lt;ion-button&gt;
+                                    &lt;ion-label&gt;Hello world&lt;/ion-label&gt;
+                                    &lt;ion-icon name="happy" slot="start"&gt;&lt;/ion-icon&gt;
+                                    &lt;/ion-button&gt;
+                                </code>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <ion-button shape="round">
+                                    <ion-label>Hello world</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <img data-src="assets/img/shadow-dom-details.png" class="add-box-shadow" style="margin-top: 12px;"/>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>CSS4 variables</h1>
+
+                    <ion-grid padding-top>
+                        <ion-row align-items-center justify-content-center>
+                            <ion-col size="12">
+                                <code padding margin text-left>ion-button button {
+                                    background: yellow !important; // -> Not cool
+                                    }
+
+                                    ion-button {
+                                    --background: red; // -> Cool
+                                    }</code>
+                            </ion-col>
+
+                            <ion-col size-md="6" size-xs="12">
+                                <ion-button shape="round" class="demo-b1">
+                                    <ion-label>Hello world in yellow</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size-md="6" size-xs="12">
+                                <ion-button shape="round" class="demo-b2">
+                                    <ion-label>Hello world in red</ion-label>
+                                    <ion-icon name="happy" slot="start"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <img data-src="assets/img/shadow-dom-css.png" class="add-box-shadow" style="margin-top: 12px;"/>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Custom elements</h1>
+                    <code padding margin text-left>class MyCustomElement extends HTMLElement {
+                        constructor() {
+                        super();
+
+                        // Create a shadow root
+                        const shadowRoot= this.attachShadow({mode: 'open'});
+
+
+                        const styles=`
+                        :host {
+                        color: var(--my-color, red);
+                        }
+                        `;
+
+                        shadowRoot.innerHTML = `
+                        &lt;style&gt;&dollar;{styles}&lt;/style&gt;
+                        &lt;h3&gt;Hello&lt;/h3&gt;
+                        &lt;slot name='after-content'&gt;Button&lt;/slot&gt;
+                        `;
+                        }
+                        }
+
+                        customElements.define('my-custom-element', MyCustomElement);</code>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <h1 style="display: none;">What?</h1>
+                <img data-src="assets/meme/webcomponents-what.jpg"/>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-grid>
+                    <ion-row align-items-center>
+                        <ion-col size="6">
+                            <h1>Reusable components</h1>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <img data-src="assets/img/web-photo-filter-app.png" style="max-height: 600px; width: auto;"/>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Framework agnostic</h1>
+                    <img data-src="assets/img/web-photo-filter-html.png" style="max-height: 600px; width: auto;"/>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Bundlers and/or compilers</h1>
+                    <p>Many solutions and compilers to simplify the development and/or bundling of Web Components</p>
+                    <div style="padding-top: 12px; display: flex; justify-content: center;">
+                        <a href="https://github.com/UpperCod/Atomico"><img data-src="assets/img/atomico.png" style="max-height: 60px; width: auto; padding-right: 16px;"/></a>
+                        <a href="http://polymer-project.org"><img data-src="assets/img/polymer.png" style="max-height: 60px; width: auto; padding-right: 16px;"/></a>
+                        <a href="https://github.com/skatejs/skatejs"><img data-src="assets/img/skatejs.png" style="max-height: 60px; width: auto; padding-right: 16px;"/></a>
+                        <a href="http://slimjs.com"><img data-src="assets/img/slimjs.png" style="max-height: 60px; width: auto; padding-right: 16px;"/></a>
+                        <a href="https://stenciljs.com"><img data-src="assets/img/stenciljs.png" style="max-height: 60px; width: auto; padding-right: 16px;"/></a>
+                    </div>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Small is beautiful</h1>
+                    <img data-src="assets/img/webcomponents-size.png" style="max-height: 600px; width: auto;"/>
+                    <p>Source: <a href="https://twitter.com/julienrenaux">Julien Renaux</a>, <a href="https://wc-todo.firebaseapp.com/">https://wc-todo.firebaseapp.com/</a></p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <h1 style="display: none;">Thoughts</h1>
+                <img data-src="assets/meme/webcomponents-david.jpg"/>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Good reasons to bet on Web Components</h1>
+
+                    <ion-list lines="none" padding-top>
+                        <ion-item>
+                            <ion-label text-wrap><strong>Performance</strong>: small, simple, lazy loaded and support SSR</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Frameworks <strong>agnostic</strong></ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap><strong>Future proof</strong>: Web Components might be less subject to migration</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Could allow companies to <strong>save</strong> costs on the long term</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <h1 style="display: none;">Introduction</h1>
+                <img data-src="assets/meme/ready.gif"/>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow style="overflow: visible;">
+                    <h1><ion-icon name="logo-ionic" style="vertical-align: middle; padding-right: 4px;"></ion-icon>Ionic</h1>
+
+                    <ul text-left>
+                        <li>Cross-platform UI toolkit <ion-icon name="logo-apple"></ion-icon> <ion-icon name="logo-android"></ion-icon> <ion-icon src="assets/img/pwa-icon.svg"></ion-icon> <ion-icon src="assets/img/electron-icon.svg"></ion-icon></li>
+                        <li>Free and open source</li>
+                        <li>Design and animation customized for the OS</li>
+                        <li>Web Standards-based</li>
+                    </ul>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Ionic <strong>v4</strong></h1>
+
+                    <img class="add-box-shadow" style="width: 60%; margin-left: auto; margin-right: auto; padding-top: 20px;" data-src="assets/img/stencil-ecosystem-chart.png"/>
+                    <p>Source: <a href="https://twitter.com/joshuamorony">Josh Morony</a>, <a href="https://www.joshmorony.com/building-a-pwa-with-stencil-an-introduction-to-stencil/">https://www.joshmorony.com/building-a-pwa-with-stencil-an-introduction-to-stencil/</a></p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Beside core, what's new In @ionic/angular?</h1>
+
+                    <ion-list lines="none" padding-top>
+                        <ion-item>
+                            <ion-label text-wrap>Angular style <strong>routing</strong> ("instead of push/pop")</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Angular <strong>CLI</strong> use under the hood: no more app-scripts</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <h1 style="display: none;">Migration's thoughts</h1>
+                <img data-src="assets/meme/ionic-david.jpg"/>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow class="align-start-xs">
+                    <h1>A feedback about the migration from v3 to v4</h1>
+
+                    <ion-list lines="none" padding-top>
+                        <ion-item>
+                            <ion-label text-wrap>Did it took <strong>time</strong>? Yes of course (my app is 68 components, 51 providers, 20 pages, 16 modals, 5 pipes and 1 directive). Also I developed some other GUI and UX improvements in the meantime</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>What was <strong>difficult</strong>? I began probably to early (alpha-11) and styling with Shadow-dom was difficult to understand (less documentation and tutorials at that time). Also my designer made me develop too much custom style 🤣</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>About <strong>styling</strong> any tips? The <a href="https://beta.ionicframework.com/docs/theming/color-generator">color generator</a> is really great. If you can't achieve it, submit a PR to add a new CSS4 variables or create your own (web) components</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>And the other topics (<strong>routing</strong>, async/await, typings, etc.) weren't too difficult? Not at all, really straight forward and/or solved with copy paste. Furthermore, I've to add, since the begin of my migration the quality was really there</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Redo?</h1>
+
+                    <img data-src="assets/meme/repeat.gif" padding-top/>
                 </ion-card>
             </ion-slide>
 
             <ion-slide>
                 <ion-card no-shadow class="align-start-xs">
-                    <h1>Features</h1>
+                    <h1></h1>
+
+                    <p><a href="https://github.com/fluster/deckdeckgo">DeckDeckGo</a> the new tool to create lightweight presentation using HTML and Ionic components</p>
 
                     <ion-list lines="none" padding-top>
                         <ion-item>
@@ -82,12 +433,12 @@
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap>Use <strong>Ionic</strong> components and icons to create your content</ion-label>
+                            <ion-label text-wrap>Use <strong>Ionic</strong> components to create the content or even add extra features</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap><strong>Style</strong> your presentation quickly</ion-label>
+                            <ion-label text-wrap><strong>Style</strong> your presentation quickly thank to the <a href="https://beta.ionicframework.com/docs/theming/color-generator">Ionic Color Generator</a></ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
 
@@ -97,54 +448,14 @@
                         </ion-item>
 
                         <ion-item>
-                            <ion-label text-wrap>Bundles the presentation with an <strong>offline</strong> support</ion-label>
-                            <ion-checkbox slot="start" checked></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label text-wrap>Free and <strong>open source</strong></ion-label>
+                            <ion-label text-wrap><strong>Future:</strong> offline support (service workers)</ion-label>
                             <ion-checkbox slot="start" checked></ion-checkbox>
                         </ion-item>
                     </ion-list>
-                </ion-card>
-            </ion-slide>
 
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1 style="display: none;">Fancy components</h1>
-                    <h3>Cherry on the cake 🍒🍰</h3>
-                    <p>Use any <strong>Ionic</strong> core components in your presentation to add some fancy elements, like for example a modal:</p>
-                    <div padding-top>
-                        <ion-button onclick="presentModal()" shape="round" size="large">Click me</ion-button>
-                    </div>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1 style="display: none;">Mobile oriented</h1>
-                    <h3>Give also a try on your mobile device 📱</h3>
-
-                    <p>Presentation built with DeckDeckGo are smooth on <strong>mobile devices</strong> and could be added to the home screen</p>
-                </ion-card>
-            </ion-slide>
-
-            <ion-slide>
-                <ion-card no-shadow>
-                    <h1>Long Story Short</h1>
-                    <h3 margin>Fork <a href="https://github.com/fluster/deckdeckgo">DeckDeckGo</a> on <a href="https://github.com/fluster/deckdeckgo">Github</a> and start building your presentation now!</h3>
-
-                    <p no-margin style="font-size: 5rem;">
-                        <a href="https://github.com/fluster/deckdeckgo"><ion-icon name="logo-github"></ion-icon></a>
-                    </p>
-
-                    <p style="margin-bottom: 0;">
-                        Created by David Dal Busco
-                    </p>
-                    <p no-margin no-padding>
-                        <a href="https://twitter.com/daviddalbusco"><ion-icon name="logo-twitter"></ion-icon></a>
-                        <a href="https://www.linkedin.com/in/david-dal-busco/"><ion-icon name="logo-linkedin"></ion-icon></a>
-                    </p>
+                    <ion-fab-button onclick="firstSlide()" padding-top style="display: flex; justify-content: center;" padding>
+                        <ion-icon name="refresh"></ion-icon>
+                    </ion-fab-button>
                 </ion-card>
             </ion-slide>
 
@@ -165,14 +476,11 @@
         </ion-fab-list>
         <ion-fab-list side="top">
             <ion-fab-button onclick="doPrint()"><ion-icon name="print"></ion-icon></ion-fab-button>
-            <ion-fab-button onclick="window.open('https://github.com/fluster/deckdeckgo', '_blank');"><ion-icon name="logo-github"></ion-icon></ion-fab-button>
+            <ion-fab-button onclick="window.open('https://github.com/peterpeterparker/ionicv4-and-beyond', '_blank');"><ion-icon name="logo-github"></ion-icon></ion-fab-button>
         </ion-fab-list>
     </ion-fab>
 
-    <!-- Ionic components anchors -->
     <ion-popover-controller></ion-popover-controller>
-    <ion-modal-controller></ion-modal-controller>
-    <ion-alert-controller></ion-alert-controller>
 </ion-app>
 
 </body>
