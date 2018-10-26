@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <title>DeckDeckGo</title>
+
+    <meta property="og:site_name" content="DeckDeckGo">
+    <meta property="og:title" content="DeckDeckGo">
+
+    <meta name="author" content="David Dal Busco">
+
+    <meta name="description" content="DeckDeckGo is the new tool to create lightweight presentation using HTML and Ionic components. DeckDeckGo let you create without effort your slides and allows you to add some extra interactive features with the help of the Ionic Web Components. Moreover, DeckDeckGo bundles your presentation with services workers letting you publish it online with an offline support.">
+    <meta property="og:description" content="DeckDeckGo is the new tool to create lightweight presentation using HTML and Ionic components.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deckdeckgo.com">
+
+    <meta property="og:image" content="https://deckdeckgo.com/assets/img/deckdeckgo.png">
+    <meta property="og:image:type" content="image/png">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#3880ff">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#3880ff">
+
+    <!-- Ionic -->
+    <link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet" media="screen">
+    <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+    <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    await navigator.serviceWorker.register('/service-worker.js');
+                } catch (e) {
+                    console.warn('No service worker registered');
+                }
+            });
+        }
+    </script>
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-tap-highlight" content="no">
+
+</head>
+<body>
+
+<ion-app>
+    <ion-content>
+        <ion-slides id="slider">
+
+            <!-- BEGIN: Your slides -->
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>DeckDeckGo</h1>
+                    <h3>The new tool to create lightweight presentation using HTML and <a href="https://ionicframework.com">Ionic</a> 🚀</h3>
+                    <p no-margin style="font-size: 5rem;">
+                        <ion-icon onclick="presentAlert()" src="assets/img/deckdeckgo.svg" padding-top margin-top></ion-icon>
+                    </p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow class="align-start-xs">
+                    <h1>Features</h1>
+
+                    <ion-list lines="none" padding-top>
+                        <ion-item>
+                            <ion-label text-wrap>Use HTML and CSS to create <strong>without effort</strong> your presentation</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Use <strong>Ionic</strong> components and icons to create your content</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap><strong>Style</strong> your presentation quickly</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Lightweight and <strong>lazy</strong> loaded images</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Bundles the presentation with an <strong>offline</strong> support</ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label text-wrap>Free and <strong>open source</strong></ion-label>
+                            <ion-checkbox slot="start" checked></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1 style="display: none;">Fancy components</h1>
+                    <h3>Cherry on the cake 🍒🍰</h3>
+                    <p>Use any <strong>Ionic</strong> core components in your presentation to add some fancy elements, like for example a modal:</p>
+                    <div padding-top>
+                        <ion-button onclick="presentModal()" shape="round" size="large">Click me</ion-button>
+                    </div>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1 style="display: none;">Mobile oriented</h1>
+                    <h3>Give also a try on your mobile device 📱</h3>
+
+                    <p>Presentation built with DeckDeckGo are smooth on <strong>mobile devices</strong> and could be added to the home screen</p>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-card no-shadow>
+                    <h1>Long Story Short</h1>
+                    <h3 margin>Fork <a href="https://github.com/fluster/deckdeckgo">DeckDeckGo</a> on <a href="https://github.com/fluster/deckdeckgo">Github</a> and start building your presentation now!</h3>
+
+                    <p no-margin style="font-size: 5rem;">
+                        <a href="https://github.com/fluster/deckdeckgo"><ion-icon name="logo-github"></ion-icon></a>
+                    </p>
+
+                    <p style="margin-bottom: 0;">
+                        Created by David Dal Busco
+                    </p>
+                    <p no-margin no-padding>
+                        <a href="https://twitter.com/daviddalbusco"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="https://www.linkedin.com/in/david-dal-busco/"><ion-icon name="logo-linkedin"></ion-icon></a>
+                    </p>
+                </ion-card>
+            </ion-slide>
+
+            <!-- END: Your slides -->
+
+        </ion-slides>
+    </ion-content>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" id="navigation">
+        <ion-fab-button>
+            <ion-icon name="apps"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+            <ion-fab-button onclick="toggleFullScreen()"><ion-icon name="expand"></ion-icon></ion-fab-button>
+            <ion-fab-button onclick="presentSlidePicker()"><ion-icon name="skip-forward"></ion-icon></ion-fab-button>
+            <ion-fab-button onclick="nextSlide()"><ion-icon name="arrow-forward"></ion-icon></ion-fab-button>
+            <ion-fab-button onclick="previousSlide()"><ion-icon name="arrow-back"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="top">
+            <ion-fab-button onclick="doPrint()"><ion-icon name="print"></ion-icon></ion-fab-button>
+            <ion-fab-button onclick="window.open('https://github.com/fluster/deckdeckgo', '_blank');"><ion-icon name="logo-github"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
+
+    <!-- Ionic components anchors -->
+    <ion-popover-controller></ion-popover-controller>
+    <ion-modal-controller></ion-modal-controller>
+    <ion-alert-controller></ion-alert-controller>
+</ion-app>
+
+</body>
+</html>
